@@ -1,0 +1,2 @@
+class VerticeInvalido(Exception):
+    pass
