@@ -27,11 +27,8 @@ class GraphAdjacentList:
             raise exceptions.InvalidVertex('Vertex {} is invalid'.format(vertex_a))
         if vertex_b not in self.vertices:
             raise exceptions.InvalidVertex('Vertex {} is invalid'.format(vertex_b))
-        for vertex_name, vertex in self.vertices.items():
-            if vertex_name == vertex_a:
-                vertex.add_neighbor(vertex_b)
-            if vertex_name == vertex_b:
-                vertex.add_neighbor(vertex_a)
+        self.vertices[vertex_a].add_neighbor(vertex_b)
+        self.vertices[vertex_b].add_neighbor(vertex_a)
         return True
 
     def print_graph(self):
