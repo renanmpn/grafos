@@ -1,7 +1,5 @@
 import graphs
-def main():
-    my_graph = graphs.Graph()
-
+def main(my_graph):
     a = graphs.Vertex('A')
     my_graph.add_vertex(a)
 
@@ -18,5 +16,9 @@ def main():
     my_graph.print_graph()
 
 if __name__ == '__main__':
-    main()
+    adjacent_list_graph = graphs.GraphAdjacentList()
+    main(adjacent_list_graph)
+
+    adjacent_list_graph = graphs.GraphAdjacentMatrix()
+    main(adjacent_list_graph)
     
