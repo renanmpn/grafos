@@ -49,6 +49,19 @@ class GraphAdjacentList:
                     queue.append(vertex)
                     visited[vertex] = True
 
+    def dfs(self, start):
+        if start not in self.vertices:
+            raise exceptions.InvalidVertex
+        visited = {vertex: False for vertex in self.vertices}
+        self.__dfs(start, visited)
+        
+    def __dfs(self, current, visited):
+        print (' {} '.format(current), end='')
+        visited[current] = True
+        for vertex in self.vertices[current].neighbors:
+            if visited[vertex] is False:
+                self.__dfs(vertex, visited)
+
     
 class GraphAdjacentMatrix:
     def __init__(self):
