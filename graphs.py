@@ -34,6 +34,21 @@ class GraphAdjacentList:
     def print_graph(self):
         for vertex_name in sorted(list(self.vertices.keys())):
             print ('{} - {}'.format(vertex_name, str(self.vertices[vertex_name].neighbors)))
+
+    def bfs(self, start):
+        if start not in self.vertices:
+            raise exceptions.InvalidVertex
+        visited = {vertex: False for vertex in self.vertices}
+        queue = [start]
+        visited[start] = True
+        while queue:
+            current = queue.pop(0)
+            print (' {} '.format(current), end='')
+            for vertex in self.vertices[current].neighbors:
+                if visited[vertex] is False:
+                    queue.append(vertex)
+                    visited[vertex] = True
+
     
 class GraphAdjacentMatrix:
     def __init__(self):

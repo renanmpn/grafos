@@ -18,7 +18,9 @@ def main(my_graph):
 if __name__ == '__main__':
     adjacent_list_graph = graphs.GraphAdjacentList()
     main(adjacent_list_graph)
-
+    print ('BFS')
+    adjacent_list_graph.bfs('C')
+    print ('')
     adjacent_list_graph = graphs.GraphAdjacentMatrix()
     main(adjacent_list_graph)
     
